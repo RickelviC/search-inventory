@@ -3,6 +3,8 @@ package com.pluralsight;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SearchInventory {
@@ -32,16 +34,16 @@ public class SearchInventory {
                 String name = divider[1];
                 double price = Double.parseDouble(divider[2]);
 
-                inventory.add(0,new Product(id,name,price));
+                inventory.add(new Product(id,name,price));
 
             }
 
         } catch (Exception ex) {
             System.err.println("Something went wrong");
         }
+
+        inventory.sort(Comparator.comparing(Product::getName));
         // Write your code here
-
-
         return inventory;
     }
 }
