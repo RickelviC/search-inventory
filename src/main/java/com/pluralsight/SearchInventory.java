@@ -26,14 +26,14 @@ public class SearchInventory {
             BufferedReader reader = new BufferedReader(new FileReader(CVS_File));
 
             while ((line = reader.readLine()) != null) {
-                int i = 0;
+
                 String[] divider = line.split("\\|");
                 int id = Integer.parseInt(divider[0]);
                 String name = divider[1];
                 double price = Double.parseDouble(divider[2]);
 
-                inventory.add(i,new Product(id,name,price));
-                i++;
+                inventory.add(0,new Product(id,name,price));
+
             }
 
         } catch (Exception ex) {
